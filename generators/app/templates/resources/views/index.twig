@@ -1,0 +1,27 @@
+{% extends 'layout.twig' %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <p>Welcome to {{ title }}! Now your app is at port {{ port }}</p>
+    <hr>
+    <h4>ORM - Example of usage:</h4>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Token</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user._name }}</td>
+                <td>{{ user._token }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p>
+        In order to insert more entities visit <a href="/api/insert/Place a name here">/api/insert/Place a name here</a>
+    </p>
+{% endblock %}

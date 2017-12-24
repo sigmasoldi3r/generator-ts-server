@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Pablo Blanco Celdrán",
+      "authorEmail": "pablobc.1995@gmail.com",
+      "authorUrl": "http://argochamber.com/"
+    }
+  }
+}

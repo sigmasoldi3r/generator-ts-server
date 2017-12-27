@@ -10,12 +10,9 @@
     "build": "node_modules/.bin/tsc",
     "build:watch": "npm run build -- -w"
   },
-  <% if (author) { %>
+  <% if (author || email) { %>
   "author": {
-    "name": "<%= author %>",
-    <% if (email) { %>
-    "email": "<%= email %>"
-    <% } %>
+    <%- [["name", author], ["email", email]].filter((x) => x[1]).map((x) => `"${x[0]}": "${x[1]}"`).join(',\n') %>
   },
   <% } %>
   <% if (repo) { %>

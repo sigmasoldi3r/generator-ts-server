@@ -1,16 +1,15 @@
 {
   "name": "generator-ts-server",
-  "version": "0.0.0",
-  "description": "A full backend written in Typescript using Node JS with Express3",
+  "version": "0.0.1",
+  "description":
+    "A full backend written in Typescript using Node JS with Express3",
   "homepage": "",
   "author": {
     "name": "Pablo Blanco Celdrán",
     "email": "pablobc.1995@gmail.com",
     "url": "http://argochamber.com/"
   },
-  "files": [
-    "generators"
-  ],
+  "files": ["generators"],
   "main": "generators/index.js",
   "keywords": [
     "generator",
@@ -49,20 +48,11 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "git add"],
+    "*.json": ["prettier --write", "git add"]
   },
   "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
+    "extends": ["xo", "prettier"],
     "env": {
       "jest": true,
       "node": true
@@ -76,9 +66,7 @@
         }
       ]
     },
-    "plugins": [
-      "prettier"
-    ]
+    "plugins": ["prettier"]
   },
   "repository": {
     "type": "git",

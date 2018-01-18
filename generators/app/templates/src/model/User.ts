@@ -7,35 +7,12 @@ import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 export class User {
 
     @PrimaryGeneratedColumn()
-    private _id: number;
+    public id: number;
 
     @Column()
-    private _name: string;
+    public name: string;
 
     @Column({length: 128})
-    private _token: string;
+    public token: string;
 
-    get id(): number {
-        return this._id;
-    }
-
-    set id(value: number) {
-        this._id = value;
-    }
-
-    get name(): string {
-        return this._name;
-    }
-
-    set name(value: string) {
-        this._name = value;
-    }
-
-    get token(): string {
-        return this._token;
-    }
-
-    set token(value: string) {
-        this._token = value;
-    }
 }

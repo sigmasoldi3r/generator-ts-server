@@ -1,7 +1,7 @@
 import "reflect-metadata";
-import {createExpressServer, useContainer as rtUsec} from "routing-controllers";
+import {useExpressServer, useContainer as rtUsec} from "routing-controllers";
 import {Container} from "typedi";
-import {Express} from "express";
+import * as express from "express";
 import morgan = require("morgan");
 import {readdirSync, readFileSync} from "fs";
 import {load as loadYAML} from "js-yaml";
@@ -24,9 +24,19 @@ ormUsec(Container);
 
 /**
  * We create a new express server instance.
- * We could have also use useExpressServer here to attach controllers to an existing express instance.
  */
-const expressApp: Express = createExpressServer({
+const app: express.Express = express();
+
+/**
+ * Use middlewares
+ */
+app.use(bodyParser.raw());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+
+useExpressServer(app, {
     /**
      * We can add options about how routing-controllers should configure itself.
      * Here we specify what controllers should be registered in our express server.
@@ -62,29 +72,20 @@ getConnectionManager().create(cfg.database).connect().then(() => {
 });
 
 /**
- * Use middlewares
- */
-expressApp.use(morgan('combined'));
-expressApp.use(bodyParser.raw());
-expressApp.use(bodyParser.urlencoded({
-    extended: true
-}));
-expressApp.use(bodyParser.json());
-
-/**
  * Configure the view engine.
  */
-expressApp.set('view engine', 'twig');
-expressApp.set('views', join(__dirname, '/../resources/views'));
+app.set('view engine', 'twig');
+app.set('views', join(__dirname, '/../resources/views'));
 
 /**
- * Setup static file serving
+ * Setup static file serving & logging
  */
-expressApp.use(serveStatic('static'));
+app.use(serveStatic('static'));
+app.use(morgan('combined'));
 
 /**
  * Start the express app.
  */
-expressApp.listen(cfg.host.port);
+app.listen(cfg.host.port);
 
 console.log(`Server is up and running at port ${cfg.host.port}`);

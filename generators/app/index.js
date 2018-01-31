@@ -156,7 +156,7 @@ This will generate a ${chalk.green('NodeJS')} + ${chalk.red(
       'tsconfig.json',
       'resources/views/error.twig',
       'src/app.ts',
-      'src/controllers/api/ApiSampleController.ts',
+      'src/controllers/api/ApiUserController.ts',
       'src/controllers/web/SampleController.ts',
       'src/model/User.ts',
       'src/services/UserService.ts',

@@ -2,19 +2,17 @@ import {Inject, Service} from "typedi";
 import {Controller, Get, Post, Redirect, Render, QueryParam, HttpCode, Req, Res} from "routing-controllers";
 import {UserService} from "../../services/UserService";
 import {User} from "../../model/User";
-import {ApiSampleController} from "../api/ApiSampleController";
 import {Request, Response} from "express";
 import * as crypto from "crypto";
 
-@Service()
+/**
+ * Sample web controller.
+ */
 @Controller()
 export class SampleController {
 
     @Inject()
     private users: UserService;
-
-    @Inject()
-    private api: ApiSampleController;
 
     /**
      * Generate sample content if nothing provided.
@@ -57,5 +55,4 @@ export class SampleController {
             users: users
         };
     }
-
 }

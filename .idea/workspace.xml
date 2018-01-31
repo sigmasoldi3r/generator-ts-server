@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0b5119d6-2bc0-4526-bf29-4ba664587050" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/generators/app/index.js" afterPath="$PROJECT_DIR$/generators/app/index.js" />
-      <change beforePath="$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiSampleController.ts" afterPath="$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiUserController.ts" />
-      <change beforePath="$PROJECT_DIR$/generators/app/templates/src/controllers/web/SampleController.ts" afterPath="$PROJECT_DIR$/generators/app/templates/src/controllers/web/SampleController.ts" />
+      <change beforePath="$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiUserController.ts" afterPath="$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiUserController.ts" />
+      <change beforePath="$PROJECT_DIR$/generators/app/templates/src/services/UserService.ts" afterPath="$PROJECT_DIR$/generators/app/templates/src/services/UserService.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,12 +18,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SampleController.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SampleController.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generators/app/templates/src/controllers/web/SampleController.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
+            <state relative-caret-position="-207">
               <caret line="3" column="38" lean-forward="false" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApiUserController.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiUserController.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#99#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,12 +62,12 @@
         <option value="$PROJECT_DIR$/generators/app/templates/resources/config.yml" />
         <option value="$PROJECT_DIR$/generators/app/templates/resources/config.ejs" />
         <option value="$PROJECT_DIR$/generators/app/templates/src/app.ts" />
-        <option value="$PROJECT_DIR$/generators/app/templates/src/services/UserService.ts" />
         <option value="$PROJECT_DIR$/generators/app/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiSampleController.ts" />
-        <option value="$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiUserController.ts" />
         <option value="$PROJECT_DIR$/generators/app/templates/src/controllers/web/SampleController.ts" />
+        <option value="$PROJECT_DIR$/generators/app/templates/src/services/UserService.ts" />
+        <option value="$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiUserController.ts" />
       </list>
     </option>
   </component>
@@ -154,6 +165,24 @@
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="generator-ts-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generator-ts-server" type="462c0819:PsiDirectoryNode" />
+              <item name="generators" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generator-ts-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generator-ts-server" type="462c0819:PsiDirectoryNode" />
+              <item name="generators" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -203,12 +232,12 @@
       <updated>1514119925365</updated>
       <workItem from="1514119926616" duration="9676000" />
       <workItem from="1514138164519" duration="137000" />
-      <workItem from="1517401823518" duration="1007000" />
+      <workItem from="1517401823518" duration="1443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10820000" />
+    <option name="totallyTimeSpent" value="11256000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1366" height="738" extended-state="6" />
@@ -322,28 +351,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generators/app/templates/src/services/UserService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="64" column="6" lean-forward="false" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiUserController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1472">
-          <caret line="64" column="37" lean-forward="false" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#91#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -357,9 +369,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generators/app/templates/src/controllers/web/SampleController.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
+        <state relative-caret-position="-207">
           <caret line="3" column="38" lean-forward="false" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generators/app/templates/src/repository/UserRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generators/app/templates/src/services/UserService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generators/app/templates/src/controllers/api/ApiUserController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#99#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

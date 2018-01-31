@@ -1,4 +1,4 @@
-import {JsonController, Get, Post, Param, BodyParam, Body, Put} from "routing-controllers";
+import {JsonController, Get, Put, Post, Delete, Param, BodyParam, Body} from "routing-controllers";
 import {Inject} from "typedi";
 import {UserService} from "../../services/UserService";
 import {User} from "../../model/User";
@@ -7,6 +7,7 @@ import {EntityFromParam} from "typeorm-routing-controllers-extensions";
 /**
  * RESTy API controller
  * Resource: User
+ * @TODO: Add HATEOAS & Error handling to get full REST sample
  */
 @JsonController('/api/users')
 export class ApiUserController {
@@ -64,5 +65,15 @@ export class ApiUserController {
       user.name = name;
       await this.users.persist(user);
       return user;
+    }
+
+    /**
+     * Deletes a resource: One User
+     * @param {User} user
+     * @returns {Promise<any>}
+     */
+    @Delete('/:id')
+    async deleteUserAction(@EntityFromParam('id') user: User): Promise<any> {
+      return this.users.remove(user);
     }
 }

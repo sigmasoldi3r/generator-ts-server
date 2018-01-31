@@ -20,4 +20,7 @@ export class UserService {
         return this.repo.save(user);
     }
 
+    public async remove(user: User): Promise<any> {
+      return this.repo.remove(user);
+    }
 }

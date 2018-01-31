@@ -7,7 +7,9 @@ import {EntityFromParam} from "typeorm-routing-controllers-extensions";
 /**
  * RESTy API controller
  * Resource: User
- * @TODO: Add HATEOAS & Error handling to get full REST sample
+ * @TODO: Add resource management for HATEOAS
+ * @TODO: Add error handling
+ * @TODO: Add content negotiation
  */
 @JsonController('/api/users')
 export class ApiUserController {
@@ -22,7 +24,10 @@ export class ApiUserController {
      */
     @Get('/:id')
     async getOneUserAction(@EntityFromParam('id') user: User): Promise<any> {
-        return user;
+        return {
+          location: `http://localhost:8080/api/users/${user.id}`,
+          data: user
+        };
     }
 
     /**
@@ -31,7 +36,17 @@ export class ApiUserController {
      */
     @Get('/')
     async getUsersAction(): Promise<any> {
-        return this.users.getAll();
+        const users: User[] = await this.users.getAll();
+        const data = users.map(user => {
+          return {
+            data: { id: user.id },
+            location: `http://localhost:8080/api/users/${user.id}`
+          }
+        });
+        return {
+          location: `http://localhost:8080/api/users`,
+          data: data
+        };
     }
 
   /**
@@ -49,7 +64,10 @@ export class ApiUserController {
         user.token = body.token;
       }
       await this.users.persist(user);
-      return user;
+      return {
+        location: `http://localhost:8080/api/users/${user.id}`,
+        data: user
+      };
     }
 
   /**
@@ -64,7 +82,10 @@ export class ApiUserController {
       user.token = token;
       user.name = name;
       await this.users.persist(user);
-      return user;
+      return {
+        location: `http://localhost:8080/api/users`,
+        data: user
+      };
     }
 
     /**
@@ -74,6 +95,10 @@ export class ApiUserController {
      */
     @Delete('/:id')
     async deleteUserAction(@EntityFromParam('id') user: User): Promise<any> {
-      return this.users.remove(user);
+      const result = this.users.remove(user);
+      return {
+        location: `http://localhost:8080/api/users/${user.id}`,
+        data: result
+      };
     }
 }

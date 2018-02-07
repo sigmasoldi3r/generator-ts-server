@@ -160,6 +160,7 @@ This will generate a ${chalk.green('NodeJS')} + ${chalk.red(
       'src/controllers/web/SampleController.ts',
       'src/model/User.ts',
       'src/services/UserService.ts',
+      'src/services/ResourceProvider.ts',
       'src/repository/UserRepository.ts',
       'resources/views/layout.twig',
       'resources/views/index.twig'

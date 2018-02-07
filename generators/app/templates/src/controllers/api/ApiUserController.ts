@@ -1,8 +1,9 @@
-import {JsonController, Get, Put, Post, Delete, Param, BodyParam, Body} from "routing-controllers";
-import {Inject} from "typedi";
-import {UserService} from "../../services/UserService";
-import {User} from "../../model/User";
-import {EntityFromParam} from "typeorm-routing-controllers-extensions";
+import { JsonController, Get, Put, Post, Delete, Param, BodyParam, Body } from 'routing-controllers';
+import { Inject } from 'typedi';
+import { UserService } from '../../services/UserService';
+import { ResourceProvider } from '../../services/ResourceProvider';
+import { User } from '../../model/User';
+import { EntityFromParam } from 'typeorm-routing-controllers-extensions';
 
 /**
  * RESTy API controller
@@ -17,6 +18,9 @@ export class ApiUserController {
     @Inject()
     private users: UserService;
 
+    @Inject()
+    private resources: ResourceProvider;
+
     /**
      * Get resource: One User
      * @param {User} user
@@ -25,8 +29,10 @@ export class ApiUserController {
     @Get('/:id')
     async getOneUserAction(@EntityFromParam('id') user: User): Promise<any> {
         return {
-          location: `http://localhost:8080/api/users/${user.id}`,
-          data: user
+          links: [
+              this.resources.getResource('self', '/api/users', user.id)
+          ],
+          content: user
         };
     }
 
@@ -39,13 +45,15 @@ export class ApiUserController {
         const users: User[] = await this.users.getAll();
         const data = users.map(user => {
           return {
-            data: { id: user.id },
-            location: `http://localhost:8080/api/users/${user.id}`
+              content: { id: user.id },
+              links: [
+                  this.resources.getResource('self', '/api/users/', user.id)
+              ]
           }
         });
         return {
-          location: `http://localhost:8080/api/users`,
-          data: data
+            links: [ this.resources.getResource('self', '/api/users') ],
+            content: data
         };
     }
 
@@ -57,17 +65,17 @@ export class ApiUserController {
    */
     @Put('/:id')
     async updateUserAction(@EntityFromParam('id') user: User, @Body() body: any): Promise<any> {
-      if (body.name) {
-        user.name = body.name;
-      }
-      if (body.token) {
-        user.token = body.token;
-      }
-      await this.users.persist(user);
-      return {
-        location: `http://localhost:8080/api/users/${user.id}`,
-        data: user
-      };
+        if (body.name) {
+            user.name = body.name;
+        }
+        if (body.token) {
+            user.token = body.token;
+        }
+        await this.users.persist(user);
+        return {
+            links: [ this.resources.getResource('self', '/api/users', user.id) ],
+            content: user
+        };
     }
 
   /**
@@ -78,14 +86,14 @@ export class ApiUserController {
    */
     @Post('/')
     async creteUserAction(@BodyParam('name') name: string, @BodyParam('token') token: string): Promise<any> {
-      const user = new User();
-      user.token = token;
-      user.name = name;
-      await this.users.persist(user);
-      return {
-        location: `http://localhost:8080/api/users`,
-        data: user
-      };
+        const user = new User();
+        user.token = token;
+        user.name = name;
+        await this.users.persist(user);
+        return {
+            links: [ this.resources.getResource('self', '/api/users') ],
+            content: user
+        };
     }
 
     /**
@@ -95,10 +103,10 @@ export class ApiUserController {
      */
     @Delete('/:id')
     async deleteUserAction(@EntityFromParam('id') user: User): Promise<any> {
-      const result = this.users.remove(user);
-      return {
-        location: `http://localhost:8080/api/users/${user.id}`,
-        data: result
-      };
+        const result = this.users.remove(user);
+        return {
+            links: [ this.resources.getResource('self', '/api/users', user.id) ],
+            content: result
+        };
     }
 }

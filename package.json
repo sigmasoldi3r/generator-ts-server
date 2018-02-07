@@ -1,6 +1,6 @@
 {
   "name": "generator-ts-server",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description":
     "A full backend written in Typescript using Node JS with Express3",
   "homepage": "",

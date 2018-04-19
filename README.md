@@ -1,6 +1,10 @@
 # generator-ts-server [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > A full backend written in Typescript using Node JS with Express3
 
+### Notice
+
+This generator is under development, yet not ready for production. Use at own risk.
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-ts-server using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
